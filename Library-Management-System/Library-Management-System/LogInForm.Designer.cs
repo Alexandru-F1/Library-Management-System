@@ -75,6 +75,7 @@ namespace Library_Management_System
 			this.PasswordTextBox.Name = "PasswordTextBox";
 			this.PasswordTextBox.Size = new System.Drawing.Size(237, 30);
 			this.PasswordTextBox.TabIndex = 3;
+			this.PasswordTextBox.TextChanged += new System.EventHandler(this.PasswordTextBox_TextChanged);
 			// 
 			// SingUpButton
 			// 
@@ -87,6 +88,7 @@ namespace Library_Management_System
 			this.SingUpButton.TabIndex = 4;
 			this.SingUpButton.Text = "Sing Up";
 			this.SingUpButton.UseVisualStyleBackColor = false;
+			this.SingUpButton.Click += new System.EventHandler(this.SingUpButton_Click);
 			// 
 			// LogInButton
 			// 
@@ -99,6 +101,7 @@ namespace Library_Management_System
 			this.LogInButton.TabIndex = 5;
 			this.LogInButton.Text = "Log In";
 			this.LogInButton.UseVisualStyleBackColor = false;
+			this.LogInButton.Click += new System.EventHandler(this.LogInButton_Click);
 			// 
 			// LogInAdminButton
 			// 
@@ -111,6 +114,7 @@ namespace Library_Management_System
 			this.LogInAdminButton.TabIndex = 6;
 			this.LogInAdminButton.Text = "Log In Admin";
 			this.LogInAdminButton.UseVisualStyleBackColor = false;
+			this.LogInAdminButton.Click += new System.EventHandler(this.LogInAdminButton_Click);
 			// 
 			// pictureBox1
 			// 

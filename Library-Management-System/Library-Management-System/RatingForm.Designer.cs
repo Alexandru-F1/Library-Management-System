@@ -64,6 +64,7 @@ namespace Library_Management_System
 			this.ConfirmButton.TabIndex = 2;
 			this.ConfirmButton.Text = "Confirm";
 			this.ConfirmButton.UseVisualStyleBackColor = false;
+			this.ConfirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);
 			// 
 			// CancelButton
 			// 
@@ -76,6 +77,7 @@ namespace Library_Management_System
 			this.CancelButton.TabIndex = 3;
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = false;
+			this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
 			// 
 			// RatingForm
 			// 

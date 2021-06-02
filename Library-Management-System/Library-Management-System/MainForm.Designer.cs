@@ -44,10 +44,6 @@ namespace Library_Management_System
 			this.ReturnBookButton = new System.Windows.Forms.Button();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
-			this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Rating = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Copies = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.BooksDataGridView)).BeginInit();
 			this.DetailsGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -58,17 +54,13 @@ namespace Library_Management_System
 			// 
 			this.BooksDataGridView.BackgroundColor = System.Drawing.Color.White;
 			this.BooksDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.BooksDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Title,
-            this.Author,
-            this.Rating,
-            this.Copies});
 			this.BooksDataGridView.Location = new System.Drawing.Point(12, 83);
 			this.BooksDataGridView.Name = "BooksDataGridView";
 			this.BooksDataGridView.ReadOnly = true;
 			this.BooksDataGridView.RowTemplate.Height = 25;
 			this.BooksDataGridView.Size = new System.Drawing.Size(450, 375);
 			this.BooksDataGridView.TabIndex = 0;
+			this.BooksDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BooksDataGridView_CellContentClick);
 			this.BooksDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BooksDataGridView_CellContentClick);
 			// 
 			// AllBooksButton
@@ -82,6 +74,7 @@ namespace Library_Management_System
 			this.AllBooksButton.TabIndex = 1;
 			this.AllBooksButton.Text = "All Books";
 			this.AllBooksButton.UseVisualStyleBackColor = false;
+			this.AllBooksButton.Click += new System.EventHandler(this.AllBooksButton_Click);
 			// 
 			// ReservedBooksButton
 			// 
@@ -94,6 +87,7 @@ namespace Library_Management_System
 			this.ReservedBooksButton.TabIndex = 2;
 			this.ReservedBooksButton.Text = "Reserved Books";
 			this.ReservedBooksButton.UseVisualStyleBackColor = false;
+			this.ReservedBooksButton.Click += new System.EventHandler(this.ReservedBooksButton_Click);
 			// 
 			// DetailsGroupBox
 			// 
@@ -160,6 +154,7 @@ namespace Library_Management_System
 			this.BorrowedBooksButton.TabIndex = 6;
 			this.BorrowedBooksButton.Text = "Borrowed Books";
 			this.BorrowedBooksButton.UseVisualStyleBackColor = false;
+			this.BorrowedBooksButton.Click += new System.EventHandler(this.BorrowedBooksButton_Click);
 			// 
 			// BorrowBookButton
 			// 
@@ -172,6 +167,7 @@ namespace Library_Management_System
 			this.BorrowBookButton.TabIndex = 4;
 			this.BorrowBookButton.Text = "Borrow";
 			this.BorrowBookButton.UseVisualStyleBackColor = false;
+			this.BorrowBookButton.Click += new System.EventHandler(this.BorrowBookButton_Click);
 			// 
 			// ReserveButton
 			// 
@@ -184,6 +180,7 @@ namespace Library_Management_System
 			this.ReserveButton.TabIndex = 5;
 			this.ReserveButton.Text = "Reserve";
 			this.ReserveButton.UseVisualStyleBackColor = false;
+			this.ReserveButton.Click += new System.EventHandler(this.ReserveButton_Click);
 			// 
 			// CancelReservationButton
 			// 
@@ -196,6 +193,7 @@ namespace Library_Management_System
 			this.CancelReservationButton.TabIndex = 7;
 			this.CancelReservationButton.Text = "Cancel Reservation";
 			this.CancelReservationButton.UseVisualStyleBackColor = false;
+			this.CancelReservationButton.Click += new System.EventHandler(this.CancelReservationButton_Click);
 			// 
 			// ReturnBookButton
 			// 
@@ -208,6 +206,7 @@ namespace Library_Management_System
 			this.ReturnBookButton.TabIndex = 8;
 			this.ReturnBookButton.Text = "Return";
 			this.ReturnBookButton.UseVisualStyleBackColor = false;
+			this.ReturnBookButton.Click += new System.EventHandler(this.ReturnBookButton_Click);
 			// 
 			// pictureBox1
 			// 
@@ -229,30 +228,6 @@ namespace Library_Management_System
 			this.pictureBox2.TabIndex = 10;
 			this.pictureBox2.TabStop = false;
 			// 
-			// Title
-			// 
-			this.Title.HeaderText = "Title";
-			this.Title.Name = "Title";
-			this.Title.ReadOnly = true;
-			// 
-			// Author
-			// 
-			this.Author.HeaderText = "Author";
-			this.Author.Name = "Author";
-			this.Author.ReadOnly = true;
-			// 
-			// Rating
-			// 
-			this.Rating.HeaderText = "Rating";
-			this.Rating.Name = "Rating";
-			this.Rating.ReadOnly = true;
-			// 
-			// Copies
-			// 
-			this.Copies.HeaderText = " Copies";
-			this.Copies.Name = "Copies";
-			this.Copies.ReadOnly = true;
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -273,6 +248,7 @@ namespace Library_Management_System
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Name = "MainForm";
 			this.Text = "MainForm";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
 			((System.ComponentModel.ISupportInitialize)(this.BooksDataGridView)).EndInit();
 			this.DetailsGroupBox.ResumeLayout(false);
 			this.DetailsGroupBox.PerformLayout();
@@ -299,9 +275,5 @@ namespace Library_Management_System
 		private System.Windows.Forms.Button ReturnBookButton;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.PictureBox pictureBox2;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Title;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Author;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Rating;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Copies;
 	}
 }

@@ -29,49 +29,16 @@ namespace Library_Management_System
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.BooksDataGridView = new System.Windows.Forms.DataGridView();
-			this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.DetailsGroupBox = new System.Windows.Forms.GroupBox();
-			this.TitleLabel = new System.Windows.Forms.Label();
-			this.AuthorLabel = new System.Windows.Forms.Label();
 			this.UserLabel = new System.Windows.Forms.Label();
+			this.AuthorLabel = new System.Windows.Forms.Label();
+			this.TitleLabel = new System.Windows.Forms.Label();
 			this.button1 = new System.Windows.Forms.Button();
 			this.CloseButton = new System.Windows.Forms.Button();
-			((System.ComponentModel.ISupportInitialize)(this.BooksDataGridView)).BeginInit();
+			this.DataGridView = new System.Windows.Forms.DataGridView();
 			this.DetailsGroupBox.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
 			this.SuspendLayout();
-			// 
-			// BooksDataGridView
-			// 
-			this.BooksDataGridView.BackgroundColor = System.Drawing.Color.White;
-			this.BooksDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.BooksDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Title,
-            this.Author,
-            this.User});
-			this.BooksDataGridView.GridColor = System.Drawing.Color.White;
-			this.BooksDataGridView.Location = new System.Drawing.Point(18, 12);
-			this.BooksDataGridView.Name = "BooksDataGridView";
-			this.BooksDataGridView.RowTemplate.Height = 25;
-			this.BooksDataGridView.Size = new System.Drawing.Size(347, 236);
-			this.BooksDataGridView.TabIndex = 0;
-			// 
-			// Title
-			// 
-			this.Title.HeaderText = "Title";
-			this.Title.Name = "Title";
-			// 
-			// Author
-			// 
-			this.Author.HeaderText = "Author";
-			this.Author.Name = "Author";
-			// 
-			// User
-			// 
-			this.User.HeaderText = "User";
-			this.User.Name = "User";
 			// 
 			// DetailsGroupBox
 			// 
@@ -86,14 +53,14 @@ namespace Library_Management_System
 			this.DetailsGroupBox.TabStop = false;
 			this.DetailsGroupBox.Text = "Details";
 			// 
-			// TitleLabel
+			// UserLabel
 			// 
-			this.TitleLabel.AutoSize = true;
-			this.TitleLabel.Location = new System.Drawing.Point(22, 40);
-			this.TitleLabel.Name = "TitleLabel";
-			this.TitleLabel.Size = new System.Drawing.Size(55, 23);
-			this.TitleLabel.TabIndex = 0;
-			this.TitleLabel.Text = "Title:";
+			this.UserLabel.AutoSize = true;
+			this.UserLabel.Location = new System.Drawing.Point(22, 115);
+			this.UserLabel.Name = "UserLabel";
+			this.UserLabel.Size = new System.Drawing.Size(56, 23);
+			this.UserLabel.TabIndex = 2;
+			this.UserLabel.Text = "User:";
 			// 
 			// AuthorLabel
 			// 
@@ -104,14 +71,14 @@ namespace Library_Management_System
 			this.AuthorLabel.TabIndex = 1;
 			this.AuthorLabel.Text = "Author:";
 			// 
-			// UserLabel
+			// TitleLabel
 			// 
-			this.UserLabel.AutoSize = true;
-			this.UserLabel.Location = new System.Drawing.Point(22, 115);
-			this.UserLabel.Name = "UserLabel";
-			this.UserLabel.Size = new System.Drawing.Size(56, 23);
-			this.UserLabel.TabIndex = 2;
-			this.UserLabel.Text = "User:";
+			this.TitleLabel.AutoSize = true;
+			this.TitleLabel.Location = new System.Drawing.Point(22, 40);
+			this.TitleLabel.Name = "TitleLabel";
+			this.TitleLabel.Size = new System.Drawing.Size(55, 23);
+			this.TitleLabel.TabIndex = 0;
+			this.TitleLabel.Text = "Title:";
 			// 
 			// button1
 			// 
@@ -124,6 +91,7 @@ namespace Library_Management_System
 			this.button1.TabIndex = 2;
 			this.button1.Text = "Confirm";
 			this.button1.UseVisualStyleBackColor = false;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// CloseButton
 			// 
@@ -136,6 +104,20 @@ namespace Library_Management_System
 			this.CloseButton.TabIndex = 3;
 			this.CloseButton.Text = "Close";
 			this.CloseButton.UseVisualStyleBackColor = false;
+			this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+			// 
+			// DataGridView
+			// 
+			this.DataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+			this.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.DataGridView.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.DataGridView.Location = new System.Drawing.Point(12, 12);
+			this.DataGridView.Name = "DataGridView";
+			this.DataGridView.RowTemplate.Height = 25;
+			this.DataGridView.Size = new System.Drawing.Size(366, 236);
+			this.DataGridView.TabIndex = 4;
+			this.DataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellContentClick);
+			this.DataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellContentClick);
 			// 
 			// ReturnedBooksForm
 			// 
@@ -143,30 +125,28 @@ namespace Library_Management_System
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(223)))), ((int)(((byte)(237)))));
 			this.ClientSize = new System.Drawing.Size(714, 278);
+			this.Controls.Add(this.DataGridView);
 			this.Controls.Add(this.CloseButton);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.DetailsGroupBox);
-			this.Controls.Add(this.BooksDataGridView);
 			this.Name = "ReturnedBooksForm";
 			this.Text = "ReturnedBooksForm";
-			((System.ComponentModel.ISupportInitialize)(this.BooksDataGridView)).EndInit();
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ReturnedBooksForm_FormClosing);
+			this.Load += new System.EventHandler(this.ReturnedBooksForm_Load);
 			this.DetailsGroupBox.ResumeLayout(false);
 			this.DetailsGroupBox.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.DataGridView)).EndInit();
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
-
-		private System.Windows.Forms.DataGridView BooksDataGridView;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Title;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Author;
-		private System.Windows.Forms.DataGridViewTextBoxColumn User;
 		private System.Windows.Forms.GroupBox DetailsGroupBox;
 		private System.Windows.Forms.Label UserLabel;
 		private System.Windows.Forms.Label AuthorLabel;
 		private System.Windows.Forms.Label TitleLabel;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Button CloseButton;
+		private System.Windows.Forms.DataGridView DataGridView;
 	}
 }

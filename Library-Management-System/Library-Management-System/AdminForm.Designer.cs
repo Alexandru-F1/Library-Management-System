@@ -38,10 +38,6 @@ namespace Library_Management_System
 			this.DeleteButton = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
 			this.ReturnedBooksButton = new System.Windows.Forms.Button();
-			this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Rating = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Copies = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.TitleLabel = new System.Windows.Forms.Label();
 			this.AuthorLabel = new System.Windows.Forms.Label();
 			this.RatingLabel = new System.Windows.Forms.Label();
@@ -54,16 +50,14 @@ namespace Library_Management_System
 			// 
 			this.BooksDataGridView.BackgroundColor = System.Drawing.Color.White;
 			this.BooksDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.BooksDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Title,
-            this.Author,
-            this.Rating,
-            this.Copies});
 			this.BooksDataGridView.Location = new System.Drawing.Point(10, 67);
 			this.BooksDataGridView.Name = "BooksDataGridView";
+			this.BooksDataGridView.ReadOnly = true;
 			this.BooksDataGridView.RowTemplate.Height = 25;
 			this.BooksDataGridView.Size = new System.Drawing.Size(451, 376);
 			this.BooksDataGridView.TabIndex = 0;
+			this.BooksDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BooksDataGridView_CellClick);
+			this.BooksDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BooksDataGridView_CellContentClick);
 			// 
 			// TitleTextBox
 			// 
@@ -108,6 +102,7 @@ namespace Library_Management_System
 			this.AddButton.TabIndex = 5;
 			this.AddButton.Text = "Add";
 			this.AddButton.UseVisualStyleBackColor = false;
+			this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
 			// 
 			// DeleteButton
 			// 
@@ -120,6 +115,7 @@ namespace Library_Management_System
 			this.DeleteButton.TabIndex = 6;
 			this.DeleteButton.Text = "Delete";
 			this.DeleteButton.UseVisualStyleBackColor = false;
+			this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
 			// 
 			// button3
 			// 
@@ -132,6 +128,7 @@ namespace Library_Management_System
 			this.button3.TabIndex = 7;
 			this.button3.Text = "Update";
 			this.button3.UseVisualStyleBackColor = false;
+			this.button3.Click += new System.EventHandler(this.button3_Click);
 			// 
 			// ReturnedBooksButton
 			// 
@@ -145,26 +142,6 @@ namespace Library_Management_System
 			this.ReturnedBooksButton.Text = "View Returned Books";
 			this.ReturnedBooksButton.UseVisualStyleBackColor = false;
 			this.ReturnedBooksButton.Click += new System.EventHandler(this.button4_Click);
-			// 
-			// Title
-			// 
-			this.Title.HeaderText = "Title";
-			this.Title.Name = "Title";
-			// 
-			// Author
-			// 
-			this.Author.HeaderText = "Author";
-			this.Author.Name = "Author";
-			// 
-			// Rating
-			// 
-			this.Rating.HeaderText = "Rating";
-			this.Rating.Name = "Rating";
-			// 
-			// Copies
-			// 
-			this.Copies.HeaderText = "Copies";
-			this.Copies.Name = "Copies";
 			// 
 			// TitleLabel
 			// 
@@ -239,6 +216,7 @@ namespace Library_Management_System
 			this.Controls.Add(this.BooksDataGridView);
 			this.Name = "AdminForm";
 			this.Text = "AdminForm";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminForm_FormClosing);
 			((System.ComponentModel.ISupportInitialize)(this.BooksDataGridView)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -256,10 +234,6 @@ namespace Library_Management_System
 		private System.Windows.Forms.Button DeleteButton;
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.Button ReturnedBooksButton;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Title;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Author;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Rating;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Copies;
 		private System.Windows.Forms.Label TitleLabel;
 		private System.Windows.Forms.Label AuthorLabel;
 		private System.Windows.Forms.Label RatingLabel;
