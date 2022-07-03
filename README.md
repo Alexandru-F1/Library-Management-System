@@ -21,4 +21,3 @@ O biblioteca ofera abonatilor sai o lista de carti ce pot fi imprumutate. <br>
 -> Pentru restituirea cartilor, exista un singur punct de lucru, deservit de un bibliotecar. <br>
 -> Dupa fiecare împrumut/restituire, toți utilizatorii terminalelor bibliotecii văd lista actualizata a cartilor disponibile. <br>
 -> Cand utilizatorul restituie o carte poate scrie un review cartii.<br>
-
